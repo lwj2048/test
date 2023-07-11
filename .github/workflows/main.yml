@@ -18,5 +18,5 @@ jobs:
         with:
           python-version: 3.9
 
-      - name: Run keyword check1
+      - name: Run keyword check
         run: python check_keywords.py
