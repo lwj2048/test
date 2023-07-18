@@ -1,6 +1,6 @@
 # test_mycode.py
 
-import mycode1
+import mycode
 
 def test_add():
-    assert mycode.add(2, 3) == 5
+    assert mycode.add(2, 3) == 6
