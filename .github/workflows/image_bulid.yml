@@ -1,0 +1,19 @@
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    container:
+      image: node:14.16
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - /test:/etc
+      options: --cpus 1
+    steps:
+      - name: Check for dockerenv file
+        run: (ls /test && echo Found dockerenv) || (echo No dockerenv)
