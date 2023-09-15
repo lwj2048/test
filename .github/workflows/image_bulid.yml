@@ -1,4 +1,4 @@
-name: CI
+name: image
 on:
   push:
     branches: [ main ]
@@ -12,8 +12,8 @@ jobs:
       ports:
         - 80
       volumes:
-        - /test:/etc
+        - test:/etc
       options: --cpus 1
     steps:
       - name: Check for dockerenv file
-        run: (ls /test && echo Found dockerenv) || (echo No dockerenv)
+        run: (ls / && ls test && echo Found etc) || (echo No dockerenv)
