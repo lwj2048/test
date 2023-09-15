@@ -12,8 +12,9 @@ jobs:
       ports:
         - 80
       volumes:
-        - /__w/test/test/image_volumes:/github
+        - /etc1:/etc
+        - /etc:/etc1
       options: --cpus 1
     steps:
       - name: Check for dockerenv file
-        run: (ls / && ls && pwd && ls image_volumes && echo Found etc) || (echo No dockerenv)
+        run: (ls /etc && ls /etc1 && echo Found etc) || (echo No dockerenv)
