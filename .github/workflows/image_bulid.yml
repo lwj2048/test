@@ -12,8 +12,12 @@ jobs:
       ports:
         - 80
       volumes:
-        - /github:/etc1
+        - /mnt:/etc1
       options: --cpus 1
     steps:
       - name: Check for dockerenv file
         run: (ls /etc1 && echo Found etc) || (echo No dockerenv)
+      - name: clone code
+        uses: actions/checkout@v2
+      - name: check
+        run: ls && wget https://repo.anaconda.com/miniconda/Miniconda3-py39_23.5.2-0-Windows-x86_64.exe
