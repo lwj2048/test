@@ -12,7 +12,7 @@ jobs:
       ports:
         - 80
       volumes:
-        - image_volumes:/etc
+        - /__w/test/test/image_volumes:/github
       options: --cpus 1
     steps:
       - name: Check for dockerenv file
