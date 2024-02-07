@@ -1,6 +1,9 @@
 name: CI
 
 on: [push]
+env:
+  TEST_PATH: '/mnt/cache'
+  TEST_PATH2: '/mnt/cache2'
 
 jobs:
   build:
@@ -24,4 +27,6 @@ jobs:
     - name: Generate coverage report
       run: |
         pip install pytest-cov
+        bash -c "echo ${TEST_PATH}"
+        bash -c 'echo ${TEST_PATH2}'
 
