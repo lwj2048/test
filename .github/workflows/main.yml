@@ -38,6 +38,7 @@ jobs:
       REQUIRE_COVERAGE: ${{ env.REQUIRE_COVERAGE }}
   Op-Test-Nvidia:
     name: Op-Test-Nvidia
+    needs: [get-env-vars]
     uses: ./.github/workflows/_runs-on-nv-step2.yml
     with:
       all_coverage: ${{  needs.get-env-vars.outputs.ALL_COVERAGE }}
