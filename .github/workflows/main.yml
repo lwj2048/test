@@ -4,6 +4,8 @@ on: [push]
 env:
   TEST_PATH: '/mnt/cache'
   TEST_PATH2: '/mnt/cache2'
+  ALL_COVERAGE: 'NO'
+  REQUIRE_COVERAGE: '0'
 
 jobs:
   build:
@@ -30,3 +32,9 @@ jobs:
         bash -c "echo ${TEST_PATH}"
         bash -c 'echo ${TEST_PATH2}'
 
+  Op-Test-Nvidia:
+    name: Op-Test-Nvidia
+    uses: ./.github/workflows/_runs-on-nv-step2.yml
+    with:
+      all_coverage: ${{ ALL_COVERAGE }}
+      require_coverage: ${{ REQUIRE_COVERAGE }}
