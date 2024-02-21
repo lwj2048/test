@@ -36,6 +36,8 @@ jobs:
     outputs:
       ALL_COVERAGE: ${{ env.ALL_COVERAGE }}
       REQUIRE_COVERAGE: ${{ env.REQUIRE_COVERAGE }}
+    steps:
+      - run: echo "null"
   Op-Test-Nvidia:
     name: Op-Test-Nvidia
     needs: [get-env-vars]
