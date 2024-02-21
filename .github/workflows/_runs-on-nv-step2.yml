@@ -1,0 +1,44 @@
+name: runs on nv step 2
+
+on:
+  workflow_call:
+    inputs:
+      runner:
+        description: Set up the runner
+        type: string
+        required: false
+        default: "tps-sco-ci"
+      deeplink_path:
+        description: ci work home
+        type: string
+        required: false
+        default: '/mnt/cache/share/deeplinkci/github/${{ github.repository }}/'
+      env_path:
+        description: env file path
+        type: string
+        required: false
+        default: '/mnt/cache/share/platform/env'
+      all_coverage:
+        description: all coverage
+        type: string
+        required: true
+        default: 'false'
+      require_coverage:
+        description: input coverage rate
+        type: string
+        required: false
+        default: '0'
+jobs:
+  Op-Test-Nvidia:
+    name: Op-Test-Nvidia
+    runs-on: ubuntu-latest
+    env:
+      SLURM_PAR_V100: "pat_dev"
+      run_test: "coverage run -p"
+      BUILD_TEST1: "build_test"
+      ALL_COVERAGE: ${{ inputs.all_coverage }}
+      REQUIRE_COVERAGE: ${{ inputs.require_coverage }}
+    steps:
+      - name: increment coverage check
+        run: |
+          echo ${REQUIRE_COVERAGE}
