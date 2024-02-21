@@ -4,8 +4,8 @@ on: [push]
 env:
   TEST_PATH: '/mnt/cache'
   TEST_PATH2: '/mnt/cache2'
-  ALL_COVERAGE: 'NO'
-  REQUIRE_COVERAGE: '0'
+  ALL_COVERAGE: 'qaz'
+  REQUIRE_COVERAGE: '345'
 
 jobs:
   build:
@@ -35,5 +35,5 @@ jobs:
     name: Op-Test-Nvidia
     uses: ./.github/workflows/_runs-on-nv-step2.yml
     with:
-      all_coverage: ${{ ALL_COVERAGE }}
-      require_coverage: ${{ REQUIRE_COVERAGE }}
+      all_coverage: ${{ vars.ALL_COVERAGE }}
+      require_coverage: ${{ vars.REQUIRE_COVERAGE }}
