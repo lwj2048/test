@@ -30,10 +30,15 @@ jobs:
         pip install pytest-cov
         bash -c "echo ${TEST_PATH}"
         bash -c 'echo ${TEST_PATH2}'
-
+  get-env-vars:
+    name: Get Environment vars
+    runs-on: ubuntu-latest
+    outputs:
+      ALL_COVERAGE: ${{ env.ALL_COVERAGE }}
+      REQUIRE_COVERAGE: ${{ env.REQUIRE_COVERAGE }}
   Op-Test-Nvidia:
     name: Op-Test-Nvidia
     uses: ./.github/workflows/_runs-on-nv-step2.yml
     with:
-      all_coverage: ${{ secrets.ALL_COVERAGE }}
-      require_coverage: ${{ secrets.REQUIRE_COVERAGE }}
+      all_coverage: ${{  needs.get-env.outputs.ALL_COVERAGE }}
+      require_coverage: ${{  needs.get-env.outputs.REQUIRE_COVERAGE }}
