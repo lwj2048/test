@@ -10,7 +10,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -36,5 +35,5 @@ jobs:
     name: Op-Test-Nvidia
     uses: ./.github/workflows/_runs-on-nv-step2.yml
     with:
-      all_coverage: "${{ env.ALL_COVERAGE }}"
-      require_coverage: "${{ env.REQUIRE_COVERAGE }}"
+      all_coverage: "${{env.ALL_COVERAGE}}"
+      require_coverage: ${{env.REQUIRE_COVERAGE}}
