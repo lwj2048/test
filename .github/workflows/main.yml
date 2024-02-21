@@ -35,5 +35,5 @@ jobs:
     name: Op-Test-Nvidia
     uses: ./.github/workflows/_runs-on-nv-step2.yml
     with:
-      all_coverage: ${{ vars.ALL_COVERAGE }}
-      require_coverage: ${{ vars.REQUIRE_COVERAGE }}
+      all_coverage: ${{ secrets.ALL_COVERAGE }}
+      require_coverage: ${{ secrets.REQUIRE_COVERAGE }}
